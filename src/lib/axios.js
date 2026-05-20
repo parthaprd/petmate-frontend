@@ -12,6 +12,17 @@ const api = axios.create({
   withCredentials: true,   // sends the HTTPOnly cookie on every request
 });
 
+// Intercept requests to add the Authorization token from localStorage
+api.interceptors.request.use((config) => {
+  if (typeof window !== 'undefined') {
+    const token = localStorage.getItem('paw_token');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+  }
+  return config;
+});
+
 // Intercept 401 globally — redirect to login
 api.interceptors.response.use(
   (response) => response,

@@ -41,12 +41,12 @@ export const AuthProvider = ({ children }) => {
       }
 
       // Step 2: Issue our JWT cookie from the backend
-      await api.post("/auth/token", {
+      const response = await api.post("/auth/token", {
         email: data.user.email,
         name: data.user.name,
       });
 
-      // Save user profile in localStorage (NOT the token — token is in cookie)
+      // Save user profile and token in localStorage
       const userToStore = {
         id: data.user.id,
         email: data.user.email,
@@ -55,6 +55,9 @@ export const AuthProvider = ({ children }) => {
       };
       setUser(userToStore);
       localStorage.setItem("paw_user", JSON.stringify(userToStore));
+      if (response.data.token) {
+        localStorage.setItem("paw_token", response.data.token);
+      }
       toast.success("Welcome back!");
 
       // Redirect to saved route or home
@@ -87,12 +90,12 @@ export const AuthProvider = ({ children }) => {
       }
 
       // Step 2: Issue our JWT cookie from the backend
-      await api.post("/auth/token", {
+      const response = await api.post("/auth/token", {
         email: data.user.email,
         name: data.user.name,
       });
 
-      // Save user profile in localStorage (NOT the token — token is in cookie)
+      // Save user profile and token in localStorage
       const userToStore = {
         id: data.user.id,
         email: data.user.email,
@@ -101,6 +104,9 @@ export const AuthProvider = ({ children }) => {
       };
       setUser(userToStore);
       localStorage.setItem("paw_user", JSON.stringify(userToStore));
+      if (response.data.token) {
+        localStorage.setItem("paw_token", response.data.token);
+      }
       toast.success("Account created successfully!");
 
       // Redirect to saved route or home
@@ -128,6 +134,7 @@ export const AuthProvider = ({ children }) => {
     } finally {
       setUser(null);
       localStorage.removeItem("paw_user");
+      localStorage.removeItem("paw_token");
       toast.success("See you soon!");
       router.push("/");
     }
