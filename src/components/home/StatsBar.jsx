@@ -29,9 +29,9 @@ function Counter({ target }) {
 
 export default function StatsBar() {
   const stats = [
-    { label: "Pets Adopted", value: 10000 },
-    { label: "Partner Shelters", value: 500 },
-    { label: "States Covered", value: 50 },
+    { label: "Pet Adopted", subtext: "Finding Forever Homes", value: 5000, suffix: "+" },
+    { label: "Partner Shelters", subtext: "Supporting Our Mission", value: 500, suffix: "+" },
+    { label: "States Covered", subtext: "Across the Nation", value: 50, suffix: "+" },
   ];
 
   return (
@@ -41,22 +41,25 @@ export default function StatsBar() {
           {stats.map((stat, index) => (
             <motion.div
               key={index}
-              className="card flex flex-col items-center justify-center text-center"
+              className="card flex items-center justify-start gap-5 p-6 md:p-8"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.15, duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true, margin: "-50px" }}
             >
               <div
-                className="text-4xl md:text-5xl font-bold text-[var(--brand-primary)] mb-2 tracking-tight"
+                className="text-4xl md:text-5xl font-extrabold text-[var(--brand-primary)] tracking-tight shrink-0"
               >
                 <Counter target={stat.value} />
-                {stat.label === "Pets Adopted" && "+"}
+                {stat.suffix}
               </div>
-              <div
-                className="text-[14px] font-medium text-[var(--text-muted)] tracking-wide"
-              >
-                {stat.label}
+              <div className="flex flex-col items-start justify-center">
+                <span className="text-lg md:text-xl font-bold text-[var(--text-primary)] leading-tight">
+                  {stat.label}
+                </span>
+                <span className="text-xs md:text-sm font-light italic text-[var(--text-muted)] mt-0.5 leading-snug">
+                  {stat.subtext}
+                </span>
               </div>
             </motion.div>
           ))}
