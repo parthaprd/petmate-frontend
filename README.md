@@ -68,8 +68,3 @@ To run the frontend client locally, follow these commands:
    npm run dev
    ```
    Open `http://localhost:3000` on your browser to view the application.
-
-4. **Verify / Build for Production**:
-   ```bash
-   npm run build
-   ```
