@@ -1,7 +1,14 @@
 import axios from 'axios';
 
+let apiURL = process.env.NEXT_PUBLIC_API_URL || '/api';
+
+// Proactive protocol check: If the configured URL is a bare domain, prepend https://
+if (apiURL && apiURL !== '/api' && !apiURL.startsWith('http://') && !apiURL.startsWith('https://')) {
+  apiURL = `https://${apiURL}`;
+}
+
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || '/api',
+  baseURL: apiURL,
   withCredentials: true,   // sends the HTTPOnly cookie on every request
 });
 
