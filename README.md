@@ -8,8 +8,7 @@ Petmate is a premium, modern pet adoption platform designed to connect hopeful p
 
 ## 🔗 Live Application URL
 Access the live deployed client application here:
-👉 **[https://petmate-frontend.vercel.app](https://petmate-frontend.vercel.app)** *(Update this link with your actual Vercel deployment URL if different)*
-
+ **[https://petmate-frontend.vercel.app](https://petmate-frontend.vercel.app)** 
 ---
 
 ## 🎯 Purpose
