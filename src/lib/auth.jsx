@@ -23,6 +23,12 @@ export const auth = betterAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     },
   },
+  account: {
+    accountLinking: {
+      enabled: true,
+      trustedProviders: ["google"],
+    },
+  },
   user: {
     // Add additional fields if necessary, or rely on standard ones (name, email, image, password)
     additionalFields: {
