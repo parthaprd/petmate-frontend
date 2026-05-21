@@ -13,18 +13,41 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
-  // Restore user from localStorage on mount
+  // Restore user from localStorage or better-auth session on mount
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem("paw_user");
-      if (stored) {
-        setUser(JSON.parse(stored));
+    const initAuth = async () => {
+      try {
+        const stored = localStorage.getItem("paw_user");
+        if (stored) {
+          setUser(JSON.parse(stored));
+        } else {
+          // Check if there is an active better-auth session (e.g., after Google login redirect)
+          const { data } = await authClient.getSession();
+          if (data?.session) {
+            const response = await api.post("/auth/token", {
+              email: data.user.email,
+              name: data.user.name,
+            });
+            const userToStore = {
+              id: data.user.id,
+              email: data.user.email,
+              name: data.user.name,
+              image: data.user.image,
+            };
+            setUser(userToStore);
+            localStorage.setItem("paw_user", JSON.stringify(userToStore));
+            if (response.data.token) {
+              localStorage.setItem("paw_token", response.data.token);
+            }
+          }
+        }
+      } catch (err) {
+        localStorage.removeItem("paw_user");
+      } finally {
+        setLoading(false);
       }
-    } catch {
-      localStorage.removeItem("paw_user");
-    } finally {
-      setLoading(false);
-    }
+    };
+    initAuth();
   }, []);
 
   // Called right after Better Auth login succeeds
@@ -140,8 +163,22 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const loginWithGoogle = async () => {
+    try {
+      const { data, error } = await authClient.signIn.social({
+        provider: "google",
+      });
+      if (error) {
+        throw new Error(error.message || "Failed to sign in with Google");
+      }
+    } catch (err) {
+      toast.error(err.message || "Google login failed.");
+      throw err;
+    }
+  };
+
   return (
-    <AuthContext.Provider value={{ user, login, register, logout, loading }}>
+    <AuthContext.Provider value={{ user, login, register, logout, loginWithGoogle, loading }}>
       {children}
     </AuthContext.Provider>
   );

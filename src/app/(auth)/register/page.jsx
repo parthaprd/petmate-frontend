@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useAuth } from '@/context/AuthContext';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
 import toast from 'react-hot-toast';
 
 export default function RegisterPage() {
@@ -18,7 +18,7 @@ export default function RegisterPage() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
-  const { register, user } = useAuth();
+  const { register, loginWithGoogle, user } = useAuth();
   const router = useRouter();
 
   if (user) {
@@ -190,6 +190,20 @@ export default function RegisterPage() {
             {loading ? 'REGISTERING...' : 'REGISTER'}
           </button>
         </form>
+
+        <div className="my-6 flex items-center gap-3">
+          <div className="flex-1 h-px bg-[var(--border-color)]" />
+          <span className="text-sm text-gray-light">OR</span>
+          <div className="flex-1 h-px bg-[var(--border-color)]" />
+        </div>
+
+        <button
+          type="button"
+          onClick={loginWithGoogle}
+          className="btn-secondary w-full flex items-center justify-center gap-2"
+        >
+          <FaGoogle /> CONTINUE WITH GOOGLE
+        </button>
 
         <p className="text-center text-sm text-gray-light mt-6">
           Already have an account?{' '}

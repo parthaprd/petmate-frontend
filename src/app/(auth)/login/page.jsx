@@ -11,7 +11,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
-  const { login, user } = useAuth();
+  const { login, loginWithGoogle, user } = useAuth();
   const router = useRouter();
 
   if (user) {
@@ -97,7 +97,11 @@ export default function LoginPage() {
           <div className="flex-1 h-px bg-[var(--border-color)]" />
         </div>
 
-        <button className="btn-secondary w-full flex items-center justify-center gap-2">
+        <button
+          type="button"
+          onClick={loginWithGoogle}
+          className="btn-secondary w-full flex items-center justify-center gap-2"
+        >
           <FaGoogle /> CONTINUE WITH GOOGLE
         </button>
 
