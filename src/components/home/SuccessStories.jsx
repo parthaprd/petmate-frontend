@@ -28,6 +28,14 @@ export default function SuccessStories() {
         "Best decision ever! Bella has stolen our hearts completely. Thank you PawsHome!",
       rating: 5,
     },
+    {
+      name: "David Lee",
+      image:
+        "https://images.pexels.com/photos/837358/pexels-photo-837358.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop",
+      quote:
+        "Finding our cat Whiskers here was a blessing. Great support and amazing care for animals.",
+      rating: 5,
+    },
   ];
 
   return (
@@ -48,30 +56,32 @@ export default function SuccessStories() {
           </p>
         </motion.div>
 
-        <div className="flex justify-center">
-          <div className="group relative p-10 flex flex-col items-center transition-all duration-300 hover:bg-gradient-to-b hover:from-[rgba(159,232,112,0.06)] hover:to-transparent bg-[var(--bg-surface)] rounded-3xl max-w-2xl w-full">
-            <div className="relative mb-6">
-              <img
-                src={stories[0].image}
-                alt={stories[0].name}
-                className="w-20 h-20 rounded-2xl object-cover transition-all duration-300 group-hover:shadow-[0_4px_0_var(--brand-dark)]"
-              />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {stories.map((story, index) => (
+            <div key={index} className="group relative p-8 flex flex-col items-center transition-all duration-300 hover:bg-gradient-to-b hover:from-[rgba(159,232,112,0.06)] hover:to-transparent bg-[var(--bg-surface)] rounded-3xl w-full">
+              <div className="relative mb-6">
+                <img
+                  src={story.image}
+                  alt={story.name}
+                  className="w-16 h-16 rounded-2xl object-cover transition-all duration-300 group-hover:shadow-[0_4px_0_var(--brand-dark)]"
+                />
+              </div>
+
+              <h3 className="text-lg font-bold tracking-tight mb-3 group-hover:text-[var(--brand-primary)] transition-colors duration-300 text-center">
+                {story.name}
+              </h3>
+
+              <div className="flex gap-1 mb-5">
+                {[...Array(story.rating)].map((_, i) => (
+                  <FaStar key={i} className="text-[#fbbf24] text-sm" />
+                ))}
+              </div>
+
+              <p className="text-[var(--text-muted)] font-medium italic leading-relaxed text-[14px] text-center">
+                "{story.quote}"
+              </p>
             </div>
-
-            <h3 className="text-xl font-bold tracking-tight mb-3 group-hover:text-[var(--brand-primary)] transition-colors duration-300">
-              {stories[0].name}
-            </h3>
-
-            <div className="flex gap-1.5 mb-6">
-              {[...Array(stories[0].rating)].map((_, i) => (
-                <FaStar key={i} className="text-[#fbbf24] text-sm" />
-              ))}
-            </div>
-
-            <p className="text-[var(--text-muted)] font-medium italic leading-relaxed text-[15px] max-w-lg text-center">
-              "{stories[0].quote}"
-            </p>
-          </div>
+          ))}
         </div>
       </div>
     </section>
