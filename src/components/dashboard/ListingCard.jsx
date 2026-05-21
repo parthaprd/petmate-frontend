@@ -37,29 +37,31 @@ export default function ListingCard({
           {pet.status === "available" && (
             <button
               onClick={() => onRequestsClick(pet._id, pet.name)}
-              className="btn-primary-small w-full"
+              className="btn-primary-small w-full mb-2"
             >
               REQUESTS
             </button>
           )}
-          <button
-            onClick={() => onEditClick(pet)}
-            className="btn-secondary-small w-full"
-          >
-            EDIT
-          </button>
-          <Link
-            href={`/pets/${pet._id}`}
-            className="btn-ghost-small w-full text-center block"
-          >
-            VIEW
-          </Link>
-          <button
-            onClick={() => onDeleteClick(pet._id, pet.name)}
-            className="btn-danger-small w-full"
-          >
-            DELETE
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => onEditClick(pet)}
+              className="btn-secondary-small w-full text-center flex-1"
+            >
+              EDIT
+            </button>
+            <Link
+              href={`/pets/${pet._id}`}
+              className="btn-secondary-small w-full text-center flex-1 block"
+            >
+              VIEW
+            </Link>
+            <button
+              onClick={() => onDeleteClick(pet._id, pet.name)}
+              className="btn-danger-small w-full text-center flex-1"
+            >
+              DELETE
+            </button>
+          </div>
         </div>
       </div>
     </motion.div>

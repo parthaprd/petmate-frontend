@@ -29,14 +29,14 @@ export default function Banner() {
     <div className="relative w-full flex items-center justify-center py-20 md:py-28 transition-colors duration-300">
       <div className="max-w-[1000px] mx-auto px-6">
 
-        {/* Center-aligned Content */}
+        
         <motion.div
           className="flex flex-col items-center text-center"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          {/* Headline */}
+          
           <motion.h1
             className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-[var(--text-primary)] mb-6 leading-[1.1] tracking-tight max-w-[850px]"
             variants={itemVariants}
@@ -44,7 +44,7 @@ export default function Banner() {
             Effective way <br></br>to adopt a pet.
           </motion.h1>
 
-          {/* Subtitle */}
+          
           <motion.p
             className="text-lg md:text-xl text-[var(--text-muted)] mb-10 max-w-2xl font-medium leading-relaxed"
             variants={itemVariants}
@@ -52,7 +52,7 @@ export default function Banner() {
             Browse available pets or list your own for adoption.
           </motion.p>
 
-          {/* Centering Buttons */}
+          
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-[400px] sm:max-w-none"
             variants={itemVariants}

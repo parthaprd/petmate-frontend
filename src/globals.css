@@ -17,7 +17,7 @@
 }
 
 :root {
-  /* Light Mode Token Values */
+  
   --bg-app: #f2f5f1;
   --bg-surface: #ffffff;
   --border-color: #e1e6e0;
@@ -36,7 +36,7 @@
 }
 
 html.dark {
-  /* Dark Mode Override Values */
+  
   --bg-app: #010208;
   --bg-surface: #070913;
   --border-color: #121426;
@@ -57,7 +57,7 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* Card styles */
+
 .card {
   background-color: var(--bg-surface);
   border: 1.5px solid var(--border-color);
@@ -72,7 +72,7 @@ body {
   transform: translateY(-2px);
 }
 
-/* Button styles */
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -308,7 +308,7 @@ body {
   transform: translateY(4px);
 }
 
-/* Input styles */
+
 .input {
   display: block;
   width: 100%;
@@ -332,7 +332,7 @@ body {
   color: var(--text-muted);
 }
 
-/* Badge styles */
+
 .badge {
   @apply inline-flex items-center px-[10px] py-[4px] rounded-full text-[12px] font-medium tracking-wide;
 }
@@ -357,7 +357,7 @@ body {
   color: #EF4444;
 }
 
-/* Background grid pattern */
+
 .bg-grid-pattern {
   background-size: 60px 60px;
   background-image: 

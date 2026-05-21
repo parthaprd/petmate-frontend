@@ -31,7 +31,7 @@ export default function AddPetForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate required fields
+    
     if (
       !formData.name ||
       !formData.species ||

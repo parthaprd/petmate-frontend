@@ -50,19 +50,19 @@ export default function WhyAdopt() {
                 key={index}
                 className="group relative p-8 flex flex-col items-center transition-all duration-300 hover:bg-gradient-to-b hover:from-[rgba(159,232,112,0.06)] hover:to-transparent"
               >
-                {/* Icon wrapper */}
+                
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center mb-6 border-[1.5px] border-[var(--border-color)] text-[var(--text-muted)] bg-transparent transition-all duration-300 group-hover:bg-[var(--brand-gradient)] group-hover:text-[#163300] group-hover:border-transparent group-hover:shadow-[0_3px_0_var(--brand-dark)]"
                 >
                   <Icon className="w-5 h-5" />
                 </div>
 
-                {/* Title */}
+                
                 <h3 className="text-lg font-bold tracking-tight mb-3 group-hover:text-[var(--brand-primary)] transition-colors duration-300">
                   {reason.title}
                 </h3>
 
-                {/* Description */}
+                
                 <p className="text-[var(--text-muted)] font-medium leading-relaxed text-[13px] max-w-xs text-center">
                   {reason.description}
                 </p>

@@ -26,9 +26,9 @@ export default function Footer() {
   return (
     <footer className="py-12 bg-transparent transition-colors duration-300">
       <div className="w-[95%] max-w-[1200px] mx-auto bg-[var(--bg-surface)] border-[1.5px] border-[var(--border-color)] rounded-[24px] p-8 md:p-12 shadow-[0_3px_0_var(--border-color)]">
-        {/* Top Content Row */}
+        
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          {/* Left Column (Logo, Description, Newsletter & Socials) */}
+          
           <div className="lg:col-span-6 flex flex-col gap-6 text-left">
             <div>
               <div 
@@ -42,7 +42,7 @@ export default function Footer() {
               </p>
             </div>
 
-            {/* Newsletter Subscription */}
+            
             <div className="space-y-3 pt-2">
               <h4 className="text-[15px] font-bold text-[var(--text-primary)]">
                 Stay updated on new arrivals
@@ -64,7 +64,7 @@ export default function Footer() {
               </form>
             </div>
 
-            {/* Social Icons */}
+            
             <div className="flex gap-3 pt-2">
               <a
                 href="#"
@@ -87,9 +87,9 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Right Columns (Links & Info) */}
+          
           <div className="lg:col-span-6 grid grid-cols-2 gap-8 lg:justify-items-end text-left lg:text-right">
-            {/* Quick Links Column */}
+            
             <div className="flex flex-col lg:items-end">
               <h3 className="font-semibold text-[14px] uppercase mb-4 text-[var(--text-primary)] tracking-wider">
                 Quick Links
@@ -130,7 +130,7 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Contact Column */}
+            
             <div className="flex flex-col lg:items-end">
               <h3 className="font-semibold text-[14px] uppercase mb-4 text-[var(--text-primary)] tracking-wider">
                 Contact
@@ -143,10 +143,10 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Divider Line */}
+        
         <div className="border-t border-[var(--border-color)] my-8"></div>
 
-        {/* Bottom Metadata Bar */}
+        
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-[13px] font-medium text-[var(--text-muted)]">
           <p>© 2026 Petmate. All rights reserved.</p>
           <div className="flex gap-6">

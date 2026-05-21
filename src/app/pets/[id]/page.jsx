@@ -9,7 +9,7 @@ import Spinner from '@/components/ui/Spinner';
 import toast from 'react-hot-toast';
 
 function PetDetailsContent({ params }) {
-  // Next.js 15+/16: params is a Promise — unwrap it with React.use()
+  
   const { id } = use(params);
   const { user } = useAuth();
   const [pet, setPet] = useState(null);
@@ -44,7 +44,7 @@ function PetDetailsContent({ params }) {
           animate={{ opacity: 1, y: 0 }}
         >
           <div className="card overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-8 p-6">
-            {/* Left Side - Pet Pic */}
+            
             <div className="w-full h-[300px] md:h-[600px] relative">
               <img
                 src={pet.imageUrl || pet.image}
@@ -53,7 +53,7 @@ function PetDetailsContent({ params }) {
               />
             </div>
 
-            {/* Right Side - Pet Info & Button */}
+            
             <div className="flex flex-col justify-between p-2">
               <div>
                 <div className="flex items-center justify-between mb-4">
@@ -87,7 +87,7 @@ function PetDetailsContent({ params }) {
                   </div>
                 </div>
 
-                {/* Details box */}
+                
                 <div className="bg-[var(--bg-app)] border border-[var(--border-color)] rounded-[16px] p-6 space-y-4 mb-6">
                   <div className="grid grid-cols-2 gap-4">
                     <div>
@@ -115,7 +115,7 @@ function PetDetailsContent({ params }) {
                 </div>
               </div>
 
-              {/* Action area */}
+              
               <div className="mt-6 pt-6 border-t border-[var(--border-color)]">
                 <p className="text-sm text-gray-light mb-3">Listed by: {pet.ownerEmail}</p>
                 {isOwnPet ? (

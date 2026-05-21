@@ -32,7 +32,7 @@ function DashboardLayoutContent({ children }) {
 
   return (
     <div className="flex min-h-screen pt-28 bg-[var(--bg-app)]">
-      {/* Sidebar - Desktop Only */}
+      
       <aside className="hidden md:block fixed z-40 left-6 top-28 bottom-6 w-60 bg-[var(--bg-surface)] text-[var(--text-primary)] border-[1.5px] border-[var(--border-color)] shadow-[0_3px_0_var(--border-color)] rounded-2xl p-6 transition-all duration-300">
         <nav className="space-y-3">
           {navItems.map((item) => {
@@ -55,7 +55,7 @@ function DashboardLayoutContent({ children }) {
           })}
         </nav>
 
-        {/* Logout Section */}
+        
         <div className="absolute bottom-6 left-6 right-6">
           <div className="flex items-center gap-3 mb-4 pb-4 border-t border-[var(--border-color)] pt-4">
             {user?.image ? (
@@ -81,15 +81,15 @@ function DashboardLayoutContent({ children }) {
         </div>
       </aside>
 
-      {/* Main Content */}
+      
       <main className="flex-1 md:pl-72 overflow-auto">
-        {/* Content with bottom padding to offset the mobile floating navbar */}
+        
         <div className="p-4 md:p-8 pb-28 md:pb-8">
           {children}
         </div>
       </main>
 
-      {/* Mobile Floating Bottom Navbar */}
+      
       <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-[400px] bg-[var(--bg-surface)] border-[1.5px] border-[var(--border-color)] shadow-[0_4px_0_var(--border-color)] rounded-2xl py-3 px-2 flex justify-around items-center">
         {navItems.map((item) => {
           const Icon = item.icon;

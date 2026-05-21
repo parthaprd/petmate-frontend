@@ -30,7 +30,7 @@ export const auth = betterAuth({
     },
   },
   user: {
-    // Add additional fields if necessary, or rely on standard ones (name, email, image, password)
+    
     additionalFields: {
       image: {
         type: "string",

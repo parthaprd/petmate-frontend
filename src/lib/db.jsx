@@ -23,6 +23,6 @@ export default clientPromise;
 
 export async function getDb() {
   const conn = await clientPromise;
-  // Use database name from URI, or default to "petmate"
+  
   return conn.db();
 }

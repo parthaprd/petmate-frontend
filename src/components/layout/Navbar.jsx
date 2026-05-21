@@ -66,7 +66,7 @@ export default function Navbar() {
     <>
       <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-fit max-w-[95%]">
       <nav className="bg-[var(--bg-surface)] rounded-2xl px-6 py-4 flex items-center justify-between md:justify-start md:gap-8 border-[1.5px] border-[var(--border-color)] shadow-[0_3px_0_var(--border-color)] transition-all duration-300">
-        {/* Left Side: Logo */}
+        
         <Link
           href="/"
           className="text-xl md:text-2xl font-bold text-[var(--brand-primary)] ml-2 flex-shrink-0 hover:scale-[1.02] active:scale-[0.98] transition-transform flex items-center gap-2"
@@ -77,7 +77,7 @@ export default function Navbar() {
           Petmate
         </Link>
 
-        {/* Right Side: Desktop Navigation & Auth */}
+        
         <div className="hidden md:flex items-center gap-8">
           <Link
             href="/"
@@ -99,9 +99,9 @@ export default function Navbar() {
           >
             All Pets
           </Link>
-          {/* Nav links managed in dashboard sidebar */}
+          
 
-          {/* Auth section inline with links */}
+          
           {user ? (
             <div className="relative" ref={dropdownRef}>
               <button
@@ -152,7 +152,7 @@ export default function Navbar() {
             </div>
           )}
 
-          {/* Theme Toggle Button (Desktop) */}
+          
           <button
             onClick={toggleTheme}
             className="w-10 h-10 rounded-xl flex items-center justify-center hover:bg-[var(--border-color)]/20 text-[var(--text-primary)] transition-all cursor-pointer"
@@ -162,7 +162,7 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Right Corner (Mobile Only): Theme Toggle & Mobile Menu button */}
+        
         <div className="flex md:hidden items-center gap-4">
           <button
             onClick={toggleTheme}
@@ -181,7 +181,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Navigation Dropdown */}
+      
       {mobileOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 mt-3 bg-[var(--bg-surface)] border-[1.5px] border-[var(--border-color)] rounded-[24px] p-5 space-y-4 shadow-[0_6px_0_var(--border-color)]">
           <Link

@@ -37,7 +37,7 @@ export default function SearchFilter({
     <div className="w-[95%] max-w-[1000px] mx-auto mb-10">
       <div className="bg-[var(--bg-surface)] rounded-2xl px-6 py-4 border-[1.5px] border-[var(--border-color)] shadow-[0_3px_0_var(--border-color)] transition-all duration-300">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 items-center">
-          {/* Search */}
+          
           <div className="w-full">
             <input
               type="text"
@@ -48,7 +48,7 @@ export default function SearchFilter({
             />
           </div>
 
-          {/* Species */}
+          
           <select
             value={species}
             onChange={(e) => handleSpeciesChange(e.target.value)}
@@ -63,7 +63,7 @@ export default function SearchFilter({
             <option value="Guinea Pig">Guinea Pig</option>
           </select>
 
-          {/* Sort */}
+          
           <select
             value={sort}
             onChange={(e) => handleSortChange(e.target.value)}
@@ -74,7 +74,7 @@ export default function SearchFilter({
             <option value="desc">Price: High to Low</option>
           </select>
 
-          {/* Clear Filters Button */}
+          
           <button
             onClick={handleClearFilters}
             className="btn-secondary-small h-[48px] w-full flex items-center justify-center"

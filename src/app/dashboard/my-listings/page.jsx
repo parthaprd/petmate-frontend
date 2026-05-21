@@ -56,7 +56,7 @@ export default function MyListingsPage() {
         My Listings
       </h1>
 
-      {/* Stats Bar */}
+      
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
         <div className="card p-4 text-center">
           <p className="text-sm text-gray-light font-bold uppercase mb-1">Total Listings</p>

@@ -55,7 +55,7 @@ export default function SuccessStories() {
                 key={index}
                 className="group relative p-8 flex flex-col items-center transition-all duration-300 hover:bg-gradient-to-b hover:from-[rgba(159,232,112,0.06)] hover:to-transparent"
               >
-                {/* Profile Image Wrapper */}
+                
                 <div className="relative mb-6">
                   <img
                     src={story.image}
@@ -64,19 +64,19 @@ export default function SuccessStories() {
                   />
                 </div>
 
-                {/* Name */}
+                
                 <h3 className="text-lg font-bold tracking-tight mb-2 group-hover:text-[var(--brand-primary)] transition-colors duration-300">
                   {story.name}
                 </h3>
 
-                {/* Stars */}
+                
                 <div className="flex gap-1 mb-4">
                   {[...Array(story.rating)].map((_, i) => (
                     <FaStar key={i} className="text-[#fbbf24] text-xs" />
                   ))}
                 </div>
 
-                {/* Quote */}
+                
                 <p className="text-[var(--text-muted)] font-medium italic leading-relaxed text-[13px] max-w-xs text-center">
                   "{story.quote}"
                 </p>

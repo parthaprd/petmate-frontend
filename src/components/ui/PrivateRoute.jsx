@@ -12,7 +12,7 @@ export default function PrivateRoute({ children }) {
 
   useEffect(() => {
     if (!loading && !user) {
-      // Save current path so we can redirect back after login
+      
       localStorage.setItem('redirect_after_login', pathname);
       router.push('/login');
     }

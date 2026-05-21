@@ -63,7 +63,7 @@ export async function PUT(request, { params }) {
       location,
       adoptionFee,
       description,
-      status, // Optional, in case the pet status changes to adopted
+      status, 
     } = body;
 
     const updateDoc = {
@@ -123,10 +123,10 @@ export async function DELETE(request, { params }) {
       return NextResponse.json({ message: "Forbidden" }, { status: 403 });
     }
 
-    // Delete pet
+    
     await db.collection("pets").deleteOne({ _id: new ObjectId(id) });
 
-    // Also delete any associated adoption requests
+    
     await db.collection("requests").deleteMany({ petId: id });
 
     return NextResponse.json({ message: "Pet deleted successfully" });

@@ -69,7 +69,7 @@ export default function MyRequestsPage() {
           </Link>
         </motion.div>
       ) : isMobile ? (
-        // Mobile Card View
+        
         <AnimatePresence>
           <motion.div
             className="space-y-4"
@@ -127,7 +127,7 @@ export default function MyRequestsPage() {
           </motion.div>
         </AnimatePresence>
       ) : (
-        // Desktop Table View
+        
         <motion.div
           className="card overflow-auto"
           initial={{ opacity: 0 }}

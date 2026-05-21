@@ -36,7 +36,7 @@ export async function POST(request) {
       return NextResponse.json({ message: "This pet is already adopted" }, { status: 400 });
     }
 
-    // Check if there is already a pending request by this user
+    
     const existingRequest = await db.collection("requests").findOne({
       petId,
       userEmail: session.user.email,

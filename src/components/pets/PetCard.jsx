@@ -11,7 +11,7 @@ export default function PetCard({ pet }) {
     <motion.div
       className="card p-0 overflow-hidden cursor-pointer flex flex-col h-full"
     >
-      {/* Image */}
+      
       <div className="w-full h-[220px] bg-gray-100 overflow-hidden relative">
         <img
           src={pet.imageUrl || pet.image}
@@ -23,7 +23,7 @@ export default function PetCard({ pet }) {
         </div>
       </div>
 
-      {/* Body */}
+      
       <div className="p-6 flex flex-col flex-grow">
         <div className="flex items-center justify-between mb-2">
           <h3 className="text-xl font-bold text-[var(--text-primary)] tracking-tight">{pet.name}</h3>

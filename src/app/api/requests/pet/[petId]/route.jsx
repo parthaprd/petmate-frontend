@@ -21,7 +21,7 @@ export async function GET(request, { params }) {
 
     const db = await getDb();
 
-    // Verify pet ownership
+    
     const pet = await db.collection("pets").findOne({ _id: new ObjectId(petId) });
     if (!pet) {
       return NextResponse.json({ message: "Pet not found" }, { status: 404 });

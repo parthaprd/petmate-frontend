@@ -38,13 +38,13 @@ export async function PATCH(request, { params }) {
     }
 
     if (status === "approved") {
-      // Approve this request
+      
       await db.collection("requests").updateOne(
         { _id: new ObjectId(requestId) },
         { $set: { status: "approved" } }
       );
 
-      // Reject all other pending requests for the same pet
+      
       await db.collection("requests").updateMany(
         {
           petId: adoptionRequest.petId,
@@ -54,7 +54,7 @@ export async function PATCH(request, { params }) {
         { $set: { status: "rejected" } }
       );
 
-      // Mark the pet as adopted
+      
       if (ObjectId.isValid(adoptionRequest.petId)) {
         await db.collection("pets").updateOne(
           { _id: new ObjectId(adoptionRequest.petId) },
@@ -62,7 +62,7 @@ export async function PATCH(request, { params }) {
         );
       }
     } else {
-      // Reject this request
+      
       await db.collection("requests").updateOne(
         { _id: new ObjectId(requestId) },
         { $set: { status: "rejected" } }
