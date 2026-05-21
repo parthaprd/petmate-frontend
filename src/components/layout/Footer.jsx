@@ -148,7 +148,7 @@ export default function Footer() {
 
         {/* Bottom Metadata Bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-[13px] font-medium text-[var(--text-muted)]">
-          <p>© 2026 PawsHome. All rights reserved.</p>
+          <p>© 2026 Petmate. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="#" className="hover:text-[var(--brand-primary)] transition-colors">
               Privacy Policy
