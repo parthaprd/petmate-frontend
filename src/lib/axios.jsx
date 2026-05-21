@@ -1,11 +1,7 @@
 import axios from 'axios';
 
-let apiURL = process.env.NEXT_PUBLIC_API_URL || '/api';
-
-// Proactive protocol check: If the configured URL is a bare domain, prepend https://
-if (apiURL && apiURL !== '/api' && !apiURL.startsWith('http://') && !apiURL.startsWith('https://')) {
-  apiURL = `https://${apiURL}`;
-}
+// Hardcoding to use the Next.js proxy to bypass CORS
+let apiURL = '/backend-api';
 
 const api = axios.create({
   baseURL: apiURL,
