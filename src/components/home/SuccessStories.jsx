@@ -48,41 +48,30 @@ export default function SuccessStories() {
           </p>
         </motion.div>
 
-        <div className="card p-0 grid grid-cols-1 md:grid-cols-3 divide-y-[1.5px] md:divide-y-0 md:divide-x-[1.5px] divide-[var(--border-color)] overflow-hidden shadow-[0_4px_0_var(--border-color)] border-[1.5px] border-[var(--border-color)] rounded-2xl bg-[var(--bg-surface)]">
-          {stories.map((story, index) => {
-            return (
-              <div
-                key={index}
-                className="group relative p-8 flex flex-col items-center transition-all duration-300 hover:bg-gradient-to-b hover:from-[rgba(159,232,112,0.06)] hover:to-transparent"
-              >
-                
-                <div className="relative mb-6">
-                  <img
-                    src={story.image}
-                    alt={story.name}
-                    className="w-14 h-14 rounded-xl object-cover border-[1.5px] border-[var(--border-color)] transition-all duration-300 group-hover:border-[var(--brand-primary)] group-hover:shadow-[0_3px_0_var(--brand-dark)]"
-                  />
-                </div>
+        <div className="flex justify-center">
+          <div className="group relative p-10 flex flex-col items-center transition-all duration-300 hover:bg-gradient-to-b hover:from-[rgba(159,232,112,0.06)] hover:to-transparent bg-[var(--bg-surface)] rounded-3xl max-w-2xl w-full">
+            <div className="relative mb-6">
+              <img
+                src={stories[0].image}
+                alt={stories[0].name}
+                className="w-20 h-20 rounded-2xl object-cover transition-all duration-300 group-hover:shadow-[0_4px_0_var(--brand-dark)]"
+              />
+            </div>
 
-                
-                <h3 className="text-lg font-bold tracking-tight mb-2 group-hover:text-[var(--brand-primary)] transition-colors duration-300">
-                  {story.name}
-                </h3>
+            <h3 className="text-xl font-bold tracking-tight mb-3 group-hover:text-[var(--brand-primary)] transition-colors duration-300">
+              {stories[0].name}
+            </h3>
 
-                
-                <div className="flex gap-1 mb-4">
-                  {[...Array(story.rating)].map((_, i) => (
-                    <FaStar key={i} className="text-[#fbbf24] text-xs" />
-                  ))}
-                </div>
+            <div className="flex gap-1.5 mb-6">
+              {[...Array(stories[0].rating)].map((_, i) => (
+                <FaStar key={i} className="text-[#fbbf24] text-sm" />
+              ))}
+            </div>
 
-                
-                <p className="text-[var(--text-muted)] font-medium italic leading-relaxed text-[13px] max-w-xs text-center">
-                  "{story.quote}"
-                </p>
-              </div>
-            );
-          })}
+            <p className="text-[var(--text-muted)] font-medium italic leading-relaxed text-[15px] max-w-lg text-center">
+              "{stories[0].quote}"
+            </p>
+          </div>
         </div>
       </div>
     </section>
