@@ -136,7 +136,7 @@ export default function Footer() {
                 Contact
               </h3>
               <ul className="space-y-3 text-[14px] font-medium text-[var(--text-muted)]">
-                <li>support@pawshome.com</li>
+                <li>support@petmate.com</li>
                 <li>Dhaka, Bangladesh</li>
               </ul>
             </div>
@@ -156,9 +156,7 @@ export default function Footer() {
             <Link href="#" className="hover:text-[var(--brand-primary)] transition-colors">
               Terms of Service
             </Link>
-            <Link href="#" className="hover:text-[var(--brand-primary)] transition-colors">
-              Cookies Settings
-            </Link>
+            
           </div>
         </div>
       </div>
