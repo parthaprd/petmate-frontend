@@ -37,6 +37,15 @@ const nextConfig = {
       }
     ]
   },
+
+  async rewrites() {
+    return [
+      {
+        source: '/backend-api/:path*',
+        destination: 'https://petmate-backend-mu.vercel.app/api/:path*',
+      },
+    ]
+  },
 }
 
 export default nextConfig
