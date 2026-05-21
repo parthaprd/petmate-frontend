@@ -1,8 +1,11 @@
 "use client";
-import { motion } from "framer-motion";
-import { FaAppleAlt, FaRunning, FaStethoscope, FaUsers, FaShower } from "react-icons/fa";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaAppleAlt, FaRunning, FaStethoscope, FaUsers, FaShower, FaChevronDown } from "react-icons/fa";
 
 export default function PetCareTips() {
+  const [openIndex, setOpenIndex] = useState(null);
+
   const tips = [
     {
       icon: FaAppleAlt,
@@ -36,9 +39,13 @@ export default function PetCareTips() {
     },
   ];
 
+  const toggleAccordion = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
     <section className="py-20 bg-[var(--bg-app)] transition-colors duration-300">
-      <div className="max-w-[1200px] mx-auto px-6">
+      <div className="max-w-[1000px] mx-auto px-6">
         <motion.div
           className="mb-14 text-center flex flex-col items-center"
           initial={{ opacity: 0 }}
@@ -54,30 +61,60 @@ export default function PetCareTips() {
           </p>
         </motion.div>
 
-        <div className="card p-0 grid grid-cols-1 md:grid-cols-5 divide-y-[1.5px] md:divide-y-0 md:divide-x-[1.5px] divide-[var(--border-color)] overflow-hidden shadow-[0_4px_0_var(--border-color)] border-[1.5px] border-[var(--border-color)] rounded-2xl bg-[var(--bg-surface)]">
+        <div className="space-y-4">
           {tips.map((tip, index) => {
             const Icon = tip.icon;
+            const isOpen = openIndex === index;
             return (
               <div
                 key={index}
-                className="group relative p-6 flex flex-col items-center transition-all duration-300 hover:bg-gradient-to-b hover:from-[rgba(159,232,112,0.06)] hover:to-transparent"
+                className="border-[1.5px] border-[var(--border-color)] rounded-2xl bg-[var(--bg-surface)] overflow-hidden shadow-[0_4px_0_var(--border-color)] transition-all duration-300 hover:bg-gradient-to-r hover:from-[rgba(159,232,112,0.04)] hover:to-transparent"
               >
-                {/* Icon wrapper */}
-                <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-6 border-[1.5px] border-[var(--border-color)] text-[var(--text-muted)] bg-transparent transition-all duration-300 group-hover:bg-[var(--brand-gradient)] group-hover:text-[#163300] group-hover:border-transparent group-hover:shadow-[0_3px_0_var(--brand-dark)]"
+                <button
+                  className="w-full px-6 py-5 flex items-center justify-between text-left group"
+                  onClick={() => toggleAccordion(index)}
                 >
-                  <Icon className="w-5 h-5" />
-                </div>
+                  <div className="flex items-center gap-4">
+                    <div
+                      className={`w-10 h-10 rounded-xl flex items-center justify-center border-[1.5px] transition-all duration-300 ${
+                        isOpen
+                          ? "bg-[var(--brand-gradient)] text-[#163300] border-transparent shadow-[0_3px_0_var(--brand-dark)]"
+                          : "border-[var(--border-color)] text-[var(--text-muted)] group-hover:text-[var(--brand-primary)] group-hover:border-[var(--brand-primary)]"
+                      }`}
+                    >
+                      <Icon className="w-4 h-4" />
+                    </div>
+                    <h3
+                      className={`text-[16px] font-bold tracking-tight transition-colors duration-300 ${
+                        isOpen ? "text-[var(--brand-primary)]" : "text-[var(--text-primary)] group-hover:text-[var(--brand-primary)]"
+                      }`}
+                    >
+                      {tip.title}
+                    </h3>
+                  </div>
+                  <motion.div
+                    animate={{ rotate: isOpen ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className={`transition-colors duration-300 ${isOpen ? "text-[var(--brand-primary)]" : "text-[var(--text-muted)]"}`}
+                  >
+                    <FaChevronDown />
+                  </motion.div>
+                </button>
 
-                {/* Title */}
-                <h3 className="text-[15px] font-bold tracking-tight text-center mb-3 group-hover:text-[var(--brand-primary)] transition-colors duration-300">
-                  {tip.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-[var(--text-muted)] font-medium leading-relaxed text-[12px] text-center">
-                  {tip.content}
-                </p>
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="px-6 pb-6 pt-2 pl-[72px] text-[var(--text-muted)] font-medium leading-relaxed text-[14px]">
+                        {tip.content}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             );
           })}

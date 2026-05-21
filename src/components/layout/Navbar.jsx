@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
-import { FaBars, FaTimes, FaChevronDown, FaSun, FaMoon } from "react-icons/fa";
+import { FaBars, FaTimes, FaChevronDown, FaSun, FaMoon, FaPaw } from "react-icons/fa";
 import toast from "react-hot-toast";
 
 export default function Navbar() {
@@ -69,10 +69,11 @@ export default function Navbar() {
         {/* Left Side: Logo */}
         <Link
           href="/"
-          className="text-xl md:text-2xl font-bold text-[var(--brand-primary)] ml-2 flex-shrink-0 hover:scale-[1.02] active:scale-[0.98] transition-transform"
+          className="text-xl md:text-2xl font-bold text-[var(--brand-primary)] ml-2 flex-shrink-0 hover:scale-[1.02] active:scale-[0.98] transition-transform flex items-center gap-2"
           style={{ fontFamily: "'Clash Display', sans-serif" }}
           aria-label="Petmate Home"
         >
+          <FaPaw className="text-[var(--brand-primary)]" />
           Petmate
         </Link>
 

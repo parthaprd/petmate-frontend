@@ -3,6 +3,7 @@ import StatsBar from '@/components/home/StatsBar';
 import FeaturedPets from '@/components/home/FeaturedPets';
 import WhyAdopt from '@/components/home/WhyAdopt';
 import SuccessStories from '@/components/home/SuccessStories';
+import PetCareTips from '@/components/home/PetcareTips';
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <StatsBar />
         <FeaturedPets />
         <WhyAdopt />
+        <PetCareTips />
         <SuccessStories />
       </div>
     </div>

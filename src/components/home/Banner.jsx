@@ -58,7 +58,7 @@ export default function Banner() {
             variants={itemVariants}
           >
             <Link href="/register" className="btn-primary w-full sm:w-auto px-10 flex items-center justify-center">
-              Get Started
+              Adopt Now
             </Link>
             <button
               onClick={() => {
