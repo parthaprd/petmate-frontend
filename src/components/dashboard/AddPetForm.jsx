@@ -59,6 +59,7 @@ export default function AddPetForm() {
         age: parseInt(formData.age),
         gender: formData.gender,
         image: formData.image,
+        imageUrl: formData.image,
         healthStatus: formData.healthStatus,
         vaccinationStatus: formData.vaccinationStatus,
         location: formData.location,

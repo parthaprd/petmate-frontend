@@ -33,7 +33,7 @@ export default function AdoptionModal({
 
     try {
       await api.post("/requests", {
-        petId: pet._id,
+        petId: String(pet._id),
         petName: formData.petName,
         userName: formData.userName,
         userEmail: formData.userEmail,
