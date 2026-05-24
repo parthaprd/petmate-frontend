@@ -18,7 +18,7 @@ export async function GET(request, { params }) {
       return NextResponse.json({ message: "Pet not found" }, { status: 404 });
     }
 
-    return NextResponse.json(pet);
+    return NextResponse.json({ ...pet, _id: pet._id.toString() });
   } catch (error) {
     return NextResponse.json({ message: error.message }, { status: 500 });
   }

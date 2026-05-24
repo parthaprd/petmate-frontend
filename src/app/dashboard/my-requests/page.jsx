@@ -108,7 +108,7 @@ export default function MyRequestsPage() {
                 </div>
                 <div className="flex gap-2">
                   <Link
-                    href={`/pets/${req.petId}`}
+                    href={`/pets/${req.petId?._id || req.petId}`}
                     className="btn-ghost-small flex-1 text-center block text-sm"
                   >
                     VIEW
@@ -168,7 +168,7 @@ export default function MyRequestsPage() {
                   <td className="px-6 py-4">
                     <div className="flex gap-2">
                       <Link
-                        href={`/pets/${req.petId}`}
+                        href={`/pets/${req.petId?._id || req.petId}`}
                         className="btn-ghost-small text-xs"
                       >
                         VIEW
